@@ -10,13 +10,14 @@ function setup(){
   
   dog = createSprite(600,285,30,70);
   dog.addImage(dogimg);
+  dog.scale = 0.5;
 
   database=firebase.database();
-  foodstock=database.ref('food');
+  foodstock=database.ref('Food');
   foodstock.on("value",readstock);
 }
 
-function draw(){  
+function draw(){
   background(46,139,87);
 
   if(keyDown(UP_ARROW)){
@@ -28,6 +29,8 @@ function draw(){
   textSize(20);
   fill("black");
   text("Press up arrow to feed drago milk!",450,20);
+
+  text("Food remaining: ",width/2,70);
   drawSprites();
 }
 

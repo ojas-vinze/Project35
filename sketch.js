@@ -1,4 +1,4 @@
-var dog,happydog,dogimg,database,foods,foodstock;
+var dog,happydog,dogimg,database,foods,foodstock,foodcount;
 
 function preload(){
   happydog=loadImage("dogimg2.png");
@@ -10,7 +10,7 @@ function setup(){
   
   dog = createSprite(600,285,30,70);
   dog.addImage(dogimg);
-  dog.scale = 0.5;
+  dog.scale = 0.3;
 
   database=firebase.database();
   foodstock=database.ref('Food');
@@ -30,7 +30,7 @@ function draw(){
   fill("black");
   text("Press up arrow to feed drago milk!",450,20);
 
-  text("Food remaining: ",width/2,70);
+  text("Food remaining: " + foods,width/2,70);
   drawSprites();
 }
 
